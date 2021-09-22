@@ -17,6 +17,7 @@ const [paginado, setpaginado] = useState(0);
  
   
   function nextPage(){
+    document.getElementById('btn_next').style.display = 'none';
     var incremento=(parseInt(localStorage.getItem("num_pagina"))+5);
     localStorage.setItem("num_pagina",incremento );
     setpaginado(localStorage.getItem("num_pagina"));
@@ -25,6 +26,7 @@ const [paginado, setpaginado] = useState(0);
 }
 function load_pokemons()
 {
+  
    setLoad(true);
   fetch('https://pokeapi.co/api/v2/pokemon/?offset='+localStorage.getItem("num_pagina")+'&limit='+amount_show)
   .then((response) => response.json())
@@ -50,7 +52,7 @@ function load_pokemons()
     {
       localStorage.setItem("num_pagina",0 );
     }
-
+    document.getElementById('btn_next').style.display = 'none';
  fetch('https://pokeapi.co/api/v2/pokemon/?offset='+localStorage.getItem("num_pagina")+'&limit='+amount_show)
       .then((response) => response.json())
       .then((data) => setResult(
@@ -74,6 +76,7 @@ function load_pokemons()
     setLoad(false);
      //ver el json en consola   
      console.log(poke);
+     document.getElementById('btn_next').style.display = 'block';
    }, 1200);
  
   return (
@@ -82,7 +85,7 @@ function load_pokemons()
 <center> <h2> Pokedex App </h2> </center>
      
     <div class="info">  <p>Pokemons:  {localStorage.getItem("num_pagina")} </p>
-<button onClick={()=> nextPage()}>Siguiente</button>
+
 </div>
 
 <section>
@@ -121,6 +124,8 @@ function load_pokemons()
           
           ))
         )}
+        <li id="btn_next" > <button onClick={()=> nextPage()}>Siguiente</button>
+       </li>
         </ul>
        </div>
         </section>
