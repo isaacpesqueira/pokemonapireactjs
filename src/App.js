@@ -94,7 +94,7 @@ function load_pokemons()
        
         { load ? (
           <center>
-            <img src="http://i.stack.imgur.com/SBv4T.gif" alt="this slowpoke moves"  width="250" />
+            <img src="http://i.stack.imgur.com/SBv4T.gif" alt="this slowpoke moves"  width="450" />
   <p>Cargando...</p></center>
  
         ) :  (
@@ -103,7 +103,7 @@ function load_pokemons()
             
             <div id={img.id} key={img.id}>
           
-          <li><img  src={img.sprites.front_default} alt='pokemon' />
+          <li><img  width="90%" src={img.sprites.front_default} alt='pokemon' />
           <h5 >{img.name}</h5>
                   <h6>Type {img.types[0].type.name}</h6>
                   <h6>Exp. {img.base_experience}</h6>
