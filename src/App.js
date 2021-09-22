@@ -17,7 +17,7 @@ const [paginado, setpaginado] = useState(0);
  
   
   function nextPage(){
-    var incremento=(parseInt(localStorage.getItem("num_pagina"))+5);
+    var incremento=(parseInt(localStorage.getItem("num_pagina"))+6);
     localStorage.setItem("num_pagina",incremento );
     setpaginado(localStorage.getItem("num_pagina"));
     load_pokemons();
