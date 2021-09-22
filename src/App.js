@@ -13,11 +13,11 @@ const [paginado, setpaginado] = useState(0);
   const arr = [];
 
   //hook avisamos que va a cambiar
-  var amount_show=6; 
+  var amount_show=5; 
  
   
   function nextPage(){
-    var incremento=(parseInt(localStorage.getItem("num_pagina"))+6);
+    var incremento=(parseInt(localStorage.getItem("num_pagina"))+5);
     localStorage.setItem("num_pagina",incremento );
     setpaginado(localStorage.getItem("num_pagina"));
     load_pokemons();
