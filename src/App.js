@@ -45,6 +45,12 @@ function load_pokemons()
 
 
   useEffect(() => {
+    
+    if (localStorage.getItem("num_pagina") === null)  
+    {
+      localStorage.setItem("num_pagina",0 );
+    }
+
  fetch('https://pokeapi.co/api/v2/pokemon/?offset='+localStorage.getItem("num_pagina")+'&limit='+amount_show)
       .then((response) => response.json())
       .then((data) => setResult(
@@ -75,7 +81,7 @@ function load_pokemons()
 
 <center> <h2> Pokedex App </h2> </center>
      
-    <div class="info">  <p>Pokemons: {parseInt((localStorage.getItem("num_pagina"))-5)} - {localStorage.getItem("num_pagina")} </p>
+    <div class="info">  <p>Pokemons:  {localStorage.getItem("num_pagina")} </p>
 <button onClick={()=> nextPage()}>Siguiente</button>
 </div>
         { load ? (
