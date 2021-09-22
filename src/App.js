@@ -13,7 +13,7 @@ const [paginado, setpaginado] = useState(0);
   const arr = [];
 
   //hook avisamos que va a cambiar
-  var amount_show=5; 
+  var amount_show=6; 
  
   
   function nextPage(){
@@ -84,33 +84,46 @@ function load_pokemons()
     <div class="info">  <p>Pokemons:  {localStorage.getItem("num_pagina")} </p>
 <button onClick={()=> nextPage()}>Siguiente</button>
 </div>
+
+<section>
+		<div class="main-container">
+			<ul class="grid-wrapper">
+    
+				
+      
+       
         { load ? (
           <center>
             <img src="http://i.stack.imgur.com/SBv4T.gif" alt="this slowpoke moves"  width="250" />
   <p>Cargando...</p></center>
  
-        ) : (
+        ) :  (
 
           poke.map((img, i) => (
-            <div class="grid-container"  id={img.id} key={img.id}>
+            
+            <div id={img.id} key={img.id}>
           
-              
-              <div  class="grid-item" style={{ width: '10rem', height: '15rem', backgroundColor: '#F0F0C9' }}>
-                <img  src={img.sprites.front_default} alt='pokemon' />
-    
-                  <h5 >{img.name}</h5>
+          <li><img  src={img.sprites.front_default} alt='pokemon' />
+          <h5 >{img.name}</h5>
                   <h6>Type {img.types[0].type.name}</h6>
                   <h6>Exp. {img.base_experience}</h6>
                   <h6>Weight. {img.weight} Kg</h6>
                   <h6>Height. {img.height} Ft</h6>
+          
+          </li>
+                
+    
+                  
                  
-              </div>
-              
+           
               </div>
 
           
           ))
         )}
+        </ul>
+       </div>
+        </section>
 <center> <p><span>Created By Isaac Pesqueira </span></p></center>
 
 
